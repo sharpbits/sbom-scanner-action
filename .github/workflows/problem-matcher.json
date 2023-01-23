@@ -1,0 +1,13 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "sbom-scanner",
+            "pattern": [
+                {
+                    "regexp": "^(fatal|error): (.*)$",
+                    "message": 2
+                }
+            ]
+        }
+    ]
+}

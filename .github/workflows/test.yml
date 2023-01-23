@@ -1,0 +1,43 @@
+name: Build and Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - dev
+      - release/*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+      - with:
+          node-version: 16.x
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - run: npm run build
+      - run: npm format-check
+      - run: npm run lint
+      - run: npm test
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+      - with:
+          node-version: 16.x
+      - uses: actions/checkout@v3
+
+      # Run scanner on hosting organization
+      - name: Test Action
+        uses: ./
+        with:
+          token: ${{ github.token }}
+          token_actor: ${{ github.actor }}
+          organizations: sharpbits
+          repo_whitelist: 
+      - name: Verify Test
+        shell: bash
+        run: ./github/workflows/verify-test.sh

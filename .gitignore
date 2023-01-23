@@ -1,0 +1,8 @@
+dist/
+__test__/_temp
+_temp/
+*.tmp.*
+lib/
+node_modules/
+sbom.json
+.vscode/launch.json

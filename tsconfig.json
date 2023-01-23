@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "ES2022",
+      "moduleResolution": "node",
+      "lib": [
+        "ES2020"
+      ],
+      "outDir": "./lib",
+      "rootDir": "./src",
+      "declaration": true,
+      "strict": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "isolatedModules": true,
+      "skipLibCheck": true,
+      "sourceMap": true
+    },
+    "exclude": ["__test__", "lib", "node_modules"]
+}

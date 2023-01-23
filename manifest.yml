@@ -1,0 +1,13 @@
+project_name: SBOM Scanner Action
+project_type: Github Action
+
+components:
+  sbom_scanner:
+    name: SBOM Scanner
+    root_directory: /
+    catalog_id: sbom-scanner-action
+    veracode_app: sbom-scanner-action
+    new_relic_app: sbom-scanner-action
+
+technologies:
+  - { type: language, name: node, version: 16, root: '.' }

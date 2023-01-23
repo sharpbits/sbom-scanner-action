@@ -1,0 +1,50 @@
+{
+  "$id": "https://raw.github.com/sharpbits/sbom-scanner-action/manigest/schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Project Manifest",
+  "version": "1.0.0",
+  "type": "object",
+  "reqired": ["project_name", "components", "project_type"],
+  "properties": {
+    "project_name": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri"
+    },
+    "components": {
+      "type": "array",
+      "items": { "$ref": "#/defs/component" }
+    }
+  },
+  "$defs": {
+    "component": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "root_directory": { "type": "string" },
+        "catalog_id": { "type": "string" },
+        "veracode_app": { "type": "string" },
+        "new_relic_app": { "type": "string" },
+        "technologies": { "$ref": "#/defs/technologies" }
+      }
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "name", "version"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["language", "framework"]
+          },
+          "name": { "type": "string" },
+          "version": { "type": "string" }
+        }
+      }
+    }
+  }
+}
