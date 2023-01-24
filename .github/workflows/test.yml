@@ -27,6 +27,14 @@ jobs:
           npm run format-check
           npm run lint
           npm run dist
+      - uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: package*.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
 
   test:
     runs-on: ubuntu-latest
@@ -35,12 +43,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: package
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
       - name: Test Action
         uses: ./
         with:
           token: ${{ github.token }}
-          token_actor: ${{ github.actor }}
+          tokenActor: ${{ github.actor }}
           organizations: sharpbits
       - name: Verify Test
         shell: bash
