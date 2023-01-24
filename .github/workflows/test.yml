@@ -16,9 +16,17 @@ jobs:
         with:
           node-version: 16.x
       - uses: actions/checkout@v3
-      - run: npm run format-check
-      - run: npm run lint
-      - run: npm run dist
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_mod-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_mod-
+      - run: |
+          npm i
+          npm run format-check
+          npm run lint
+          npm run dist
 
   test:
     runs-on: ubuntu-latest
