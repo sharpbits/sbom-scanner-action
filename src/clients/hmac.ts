@@ -1,4 +1,4 @@
-import {BinaryLike, BinaryToTextEncoding, createHmac, randomBytes} from 'crypto'
+import { BinaryLike, BinaryToTextEncoding, createHmac, randomBytes } from 'crypto'
 
 const headerPrefix = 'VERACODE-HMAC-SHA-256'
 const verStr = 'vcode_request_version_1'

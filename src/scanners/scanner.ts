@@ -1,6 +1,6 @@
-import {GithubRepo} from '../clients/github'
-import {ISettings} from '../settings'
-import {ManifestScannerResult} from './manifest-scanner'
+import { GithubRepo } from '../clients/github'
+import { ISettings } from '../settings'
+import { ManifestScannerResult } from './manifest-scanner'
 
 export interface IScanResult {
   scan_date: string
