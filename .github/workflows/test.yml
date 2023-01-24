@@ -30,7 +30,10 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: package
-          path: package*.json
+          path: |
+            package.json
+            package-lock.json
+            action.yml
       - uses: actions/upload-artifact@v3
         with:
           name: dist
