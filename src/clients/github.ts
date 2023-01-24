@@ -15,6 +15,7 @@ export interface GithubCommitStatus {
   commit_status_target_url?: string
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function getOctokit(githubUrl: string, token: string) {
   return github.getOctokit(token, {
     baseUrl: `${githubUrl}/api/v3`

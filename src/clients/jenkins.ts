@@ -56,6 +56,8 @@ export async function getJenkinsData(jenkinsUrl: string, jenkinsUser: string, je
   // Break apart the URL (regex is overkill here)
   jenkinsUrl = jenkinsUrl.replace('/display/redirect', '')
   const urlArr = jenkinsUrl.split('/')
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_a, _b, host, _c, org, _d, repo, _e, branch, buildNum] = urlArr
 
   // const lastBuildUrl = `${jenkinsUrl}/api/json`

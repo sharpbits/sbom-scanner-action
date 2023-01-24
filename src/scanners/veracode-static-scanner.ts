@@ -1,4 +1,3 @@
-import * as core from '@actions/core'
 import { subMonths, compareAsc, parseISO } from 'date-fns'
 import { GithubRepo } from '../clients/github'
 import { searchApplications } from '../clients/veracode'
@@ -64,7 +63,7 @@ export class VeracodeScanner implements IScanner {
       const searchResult = await searchApplications(this.apiUrl, this.apiId, this.apiKey, { appName: vcProject.veracode_app_name })
 
       // Name search is wildcard so it may return inexact matches, filter for exact name match
-      let appResult = searchResult?._embedded?.applications?.find(
+      const appResult = searchResult?._embedded?.applications?.find(
         c => c.profile.name.toLowerCase() === vcProject.veracode_app_name.toLowerCase()
       )
 
