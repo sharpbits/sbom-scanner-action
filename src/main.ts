@@ -14,8 +14,6 @@ async function run(): Promise<void> {
     const settings = await getSettings()
     const scanners = [] as IScanner[]
 
-    core.info(JSON.stringify(settings, null, 2))
-
     const scanResult = {
       scan_date: new Date().toISOString(),
       scan_start_utc_time: Date.now(),

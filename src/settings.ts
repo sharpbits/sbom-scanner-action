@@ -24,7 +24,7 @@ export interface ISettings {
 export async function getSettings(): Promise<ISettings> {
   const settings = {} as ISettings
 
-  settings.githubUrl = core.getInput('githubUrl') || 'https://www.github.com'
+  settings.githubUrl = core.getInput('githubUrl') || 'https://github.com'
   settings.githubRawUrl = core.getInput('githubRawUrl') || 'https://raw.github.com'
 
   settings.token = core.getInput('token') || process.env.GITHUB_TOKEN || ''

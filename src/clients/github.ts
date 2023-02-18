@@ -18,7 +18,7 @@ export interface GithubCommitStatus {
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function getOctokit(githubUrl: string, token: string) {
   return github.getOctokit(token, {
-    baseUrl: `${githubUrl}/api/v3`
+    // baseUrl: `${githubUrl}/api/v3`
   })
 }
 
@@ -65,7 +65,8 @@ export async function listRepos({
 
     core.info(`Scanning for repos in ${orgName}`)
     try {
-      return (await octo.paginate('GET /orgs/{org}/repos', { org: orgName })) as GithubRepo[]
+      // 'GET /orgs/{org}/repos'
+      return await octo.paginate('GET /repos/{org}', { org: orgName })
     } catch (error) {
       core.error(`Error listing repos for org ${orgName}: ${error}`)
     }

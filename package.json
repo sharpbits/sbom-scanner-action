@@ -13,7 +13,8 @@
     "test": "jest",
     "scan": "npm run build && node --es-module-specifier-resolution=node lib/main.js",
     "scan-test": "npm run build && node --es-module-specifier-resolution=node lib/test.tmp.js",
-    "dist": "rm -rf ./dist && npm run esbuild"
+    "dist": "rm -rf ./dist && npm run esbuild",
+    "all": "npm run format && npm run lint && npm run dist"
   },
   "license": "MIT",
   "author": "Ken Hill",
