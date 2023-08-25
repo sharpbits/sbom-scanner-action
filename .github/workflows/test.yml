@@ -36,6 +36,7 @@ jobs:
             package.json
             package-lock.json
             action.yml
+            verify.js
       - uses: actions/upload-artifact@v3
         with:
           name: dist
