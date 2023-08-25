@@ -65,8 +65,8 @@ export async function listRepos({
 
     core.info(`Scanning for repos in ${orgName}`)
     try {
-      // 'GET /orgs/{org}/repos'
-      return await octo.paginate('GET /repos/{org}', { org: orgName })
+      const repoSet = await octo.paginate(octo.rest.repos.listForOrg, { org: orgName })
+      return repoSet as GithubRepo[]
     } catch (error) {
       core.error(`Error listing repos for org ${orgName}: ${error}`)
     }
