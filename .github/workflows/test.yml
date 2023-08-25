@@ -61,6 +61,6 @@ jobs:
           token: ${{ github.token }}
           tokenActor: ${{ github.actor }}
           organizations: sharpbits
-      # - name: Verify Test
-      #   shell: bash
-      #   run: ...
+      - name: Verify Test
+        shell: bash
+        run: node .github/workflows/verify.js
