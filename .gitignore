@@ -6,3 +6,4 @@ lib/
 node_modules/
 sbom.json
 .vscode/launch.json
+.env

@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.github.com/sharpbits/sbom-scanner-action/manigest/schema.json",
+  "$id": "https://raw.github.com/sharpbits/sbom-scanner-action/manifest/schema.json",
   "$schema": "http://json-schema.org/draft-07/schema",
   "title": "Project Manifest",
   "version": "1.0.0",
