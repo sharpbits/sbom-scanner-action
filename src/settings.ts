@@ -29,7 +29,7 @@ export async function getSettings(): Promise<ISettings> {
 
   settings.token = core.getInput('token') || process.env.GITHUB_TOKEN || ''
   settings.tokenActor = core.getInput('tokenActor') || ''
-  settings.manifestFilename = core.getInput('manifestFilename') || 'manifest.json'
+  settings.manifestFilename = core.getInput('manifestFilename') || 'manifest.yml'
 
   settings.scanners = splitInput(core.getInput('scanners')) || ['manifest']
   settings.orgs = splitInput(core.getInput('organizations'))
