@@ -23,7 +23,7 @@ export async function run(): Promise<void> {
       repos: {}
     } as IScanResult
 
-    settings.scanners.forEach(scanner => {
+    for (const scanner of settings.scanners) {
       switch (scanner) {
         case 'jenkins':
           scanners.push(new JenkinsScanner())
@@ -37,7 +37,7 @@ export async function run(): Promise<void> {
         default:
           break
       }
-    })
+    }
 
     for (const scanner of scanners) {
       scanner.initialize(settings)
