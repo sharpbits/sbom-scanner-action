@@ -1,6 +1,6 @@
 {
   "name": "sbom-scanner",
-  "version": "2.0.2",
+  "version": "1.0.0",
   "description": "Scan repo for projects and generate a bill-of-materials",
   "exports": "./dist/index.cjs",
   "type": "module",
